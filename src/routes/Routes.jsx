@@ -12,6 +12,7 @@ import Register from '../pages/Login/Register/Register';
 import Login from '../pages/Login/Login/Login';
 import ChefRecipe from '../pages/ChefRecipe/ChefRecipe';
 import PageNotFound from '../pages/PageNotFound/PageNotFound';
+import Blog from '../pages/Blog/Blog';
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: '/terms',
                 element: <Terms></Terms>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     },

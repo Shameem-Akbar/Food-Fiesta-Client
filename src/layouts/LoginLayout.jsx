@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import NavigationBar from '../pages/shared/NavigationBar/NavigationBar';
 
 const LoginLayout = () => {
     return (
         <div>
-            <h2>Login</h2>
+            <NavigationBar></NavigationBar>
             <Outlet></Outlet>
         </div>
     );
