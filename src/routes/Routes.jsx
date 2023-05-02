@@ -11,6 +11,7 @@ import Terms from '../pages/Login/Terms/Terms';
 import Register from '../pages/Login/Register/Register';
 import Login from '../pages/Login/Login/Login';
 import ChefRecipe from '../pages/ChefRecipe/ChefRecipe';
+import PageNotFound from '../pages/PageNotFound/PageNotFound';
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
+    }
 ]);
 
 export default router;
