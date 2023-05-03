@@ -53,13 +53,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/home',
-        element: <Main></Main>,
-        children: [
-            {
-                path: ':id',
-                element: <Chef></Chef>
-            }
-        ]
+        element: <Main></Main>
     },
     {
         path: 'chef-recipe',
