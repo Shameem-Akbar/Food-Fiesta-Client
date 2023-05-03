@@ -13,6 +13,8 @@ import Login from '../pages/Login/Login/Login';
 import ChefRecipe from '../pages/ChefRecipe/ChefRecipe';
 import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import Blog from '../pages/Blog/Blog';
+import About from '../pages/About/About';
+import Contact from '../pages/Contact/Contact';
 
 const router = createBrowserRouter([
     {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             }
         ]
     },
