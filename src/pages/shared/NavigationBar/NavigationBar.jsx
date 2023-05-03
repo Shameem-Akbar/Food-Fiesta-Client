@@ -24,7 +24,7 @@ const NavigationBar = () => {
                             <Nav className='d-flex flex-row align-items-center mt-2 ps-lg-5 ms-lg-5'>
                                 <div><FaUserCircle className='fs-3 me-2'></FaUserCircle></div>
                                 <Link to='/login'>
-                                    <Button variant="dark">Login</Button>
+                                    <Button className='fw-bold px-3 border-0' style={{ backgroundColor: "#FF5915" }}>Login</Button>
                                 </Link>
                             </Nav>
                         </Navbar.Collapse>
