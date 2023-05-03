@@ -17,7 +17,7 @@ const Blog = () => {
             </div>
             <Row xs={1} md={2} className="g-2 mb-5">
                 <Col>
-                    <Card className='border-primary h-100'>
+                    <Card className='h-100' style={{ borderColor: "#FF5915", }}>
                         <Card.Body>
                             <Card.Text className='fs-3'> <span className='fw-bold'>Ques-01.</span> Tell us the differences between uncontrolled and controlled components.</Card.Text>
                             <Card.Text className='fs-4'>
@@ -28,7 +28,7 @@ const Blog = () => {
                     </Card>
                 </Col>
                 <Col>
-                    <Card className='border-primary h-100'>
+                    <Card className='h-100' style={{ borderColor: "#FF5915", }}>
                         <Card.Body>
                             <Card.Text className='fs-3'> <span className='fw-bold'>Ques-02.</span> How to validate React props using PropTypes?</Card.Text>
                             <Card.Text className='fs-4'>
@@ -39,7 +39,7 @@ const Blog = () => {
                     </Card>
                 </Col>
                 <Col>
-                    <Card className='border-primary h-100'>
+                    <Card className='h-100' style={{ borderColor: "#FF5915", }}>
                         <Card.Body>
                             <Card.Text className='fs-3'> <span className='fw-bold'>Ques-03.</span> Tell us the difference between nodejs and express js.</Card.Text>
                             <Card.Text className='fs-4'>
@@ -50,7 +50,7 @@ const Blog = () => {
                     </Card>
                 </Col>
                 <Col>
-                    <Card className='border-primary h-100'>
+                    <Card className='h-100' style={{ borderColor: "#FF5915", }}>
                         <Card.Body>
                             <Card.Text className='fs-3'> <span className='fw-bold'>Ques-04.</span> What is a custom hook, and why will you create a custom hook?</Card.Text>
                             <Card.Text className='fs-4'>
