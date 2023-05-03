@@ -6,6 +6,7 @@ import Footer from '../pages/shared/Footer/Footer';
 import banner from '../assets/banner.jpg'
 import Banner from '../pages/Home/Banner/Banner';
 import Slider from '../pages/Home/Slider/Slider';
+import InfoBanner from '../pages/Home/InfoBanner/InfoBanner';
 
 const Main = () => {
     return (
@@ -15,6 +16,7 @@ const Main = () => {
                 <Banner></Banner>
             </div>
             <Home></Home>
+            <InfoBanner></InfoBanner>
             <Slider></Slider>
             <Footer></Footer>
         </div>
