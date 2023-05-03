@@ -7,6 +7,7 @@ import banner from '../assets/banner.jpg'
 import Banner from '../pages/Home/Banner/Banner';
 import Slider from '../pages/Home/Slider/Slider';
 import InfoBanner from '../pages/Home/InfoBanner/InfoBanner';
+import FacilitiesBanner from '../pages/Home/FacilitiesBanner/FacilitiesBanner';
 
 const Main = () => {
     return (
@@ -18,6 +19,7 @@ const Main = () => {
             <Home></Home>
             <InfoBanner></InfoBanner>
             <Slider></Slider>
+            <FacilitiesBanner></FacilitiesBanner>
             <Footer></Footer>
         </div>
     );

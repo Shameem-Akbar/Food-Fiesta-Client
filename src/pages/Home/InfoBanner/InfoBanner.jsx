@@ -8,7 +8,7 @@ import pic4 from '../../../assets/menu.png'
 const InfoBanner = () => {
     return (
         <div className='my-4' style={{ backgroundColor: "#FF5915", color: "white" }}>
-            <Container className='d-flex justify-content-around py-4'>
+            <Container className='d-flex flex-wrap justify-content-evenly justify-content-lg-around pt-3 pb-2 py-lg-4 '>
                 <div className='d-flex align-items-center'>
                     <img src={pic1} style={{ width: "4rem", height: '4rem', color: "white" }} className='me-3' alt="" />
                     <div>
@@ -23,14 +23,14 @@ const InfoBanner = () => {
                         <p className='mb-0 fs-5'>Outlets</p>
                     </div>
                 </div>
-                <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-center pt-3 pt-lg-0 pb-2 pb-lg-0'>
                     <img src={pic3} style={{ width: "4rem", height: '4rem' }} className='me-3' alt="" />
                     <div>
                         <h1 className='mb-0'>150+</h1>
                         <p className='mb-0 fs-5'>Staffs</p>
                     </div>
                 </div>
-                <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-center pt-3 pt-lg-0 pb-2 pb-lg-0'>
                     <img src={pic4} style={{ width: "4rem", height: '4rem' }} className='me-3' alt="" />
                     <div>
                         <h1 className='mb-0'>350+</h1>
