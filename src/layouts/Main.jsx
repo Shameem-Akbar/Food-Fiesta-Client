@@ -8,6 +8,7 @@ import Banner from '../pages/Home/Banner/Banner';
 import Slider from '../pages/Home/Slider/Slider';
 import InfoBanner from '../pages/Home/InfoBanner/InfoBanner';
 import FacilitiesBanner from '../pages/Home/FacilitiesBanner/FacilitiesBanner';
+import HomeBlog from '../pages/Home/HomeBlog/HomeBlog';
 
 const Main = () => {
     return (
@@ -20,6 +21,7 @@ const Main = () => {
             <InfoBanner></InfoBanner>
             <Slider></Slider>
             <FacilitiesBanner></FacilitiesBanner>
+            <HomeBlog></HomeBlog>
             <Footer></Footer>
         </div>
     );
