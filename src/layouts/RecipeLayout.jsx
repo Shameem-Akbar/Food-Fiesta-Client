@@ -8,7 +8,7 @@ const RecipeLayout = () => {
         <div>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 };

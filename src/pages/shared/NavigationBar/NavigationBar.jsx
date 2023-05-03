@@ -8,7 +8,7 @@ import ActiveLink from './ActiveLink/ActiveLink';
 const NavigationBar = () => {
     return (
         <div>
-            <Container className='mt-4 mb-4'>
+            <Container className='mb-4'>
                 <Navbar className='shadow p-3 mb-5 bg-body-tertiary rounded' collapseOnSelect expand="lg" variant="light">
                     <Container>
                         <Link to='/home'><Navbar.Brand className='py-0 me-0'><img src={logo} alt="" /></Navbar.Brand></Link>
