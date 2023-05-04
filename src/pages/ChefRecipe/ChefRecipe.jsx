@@ -3,6 +3,7 @@ import { Container, Spinner } from 'react-bootstrap';
 import { FaArrowLeft, FaThumbsUp } from 'react-icons/fa';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Recipe from './Recipe/Recipe';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ChefRecipe = () => {
     const { id } = useParams();
@@ -26,7 +27,7 @@ const ChefRecipe = () => {
             <Container className="card mb-3 px-0" >
                 <div className="row g-0 p-2">
                     <div className="col-md-4">
-                        <img src={chef_picture} className="img-fluid rounded-start" alt="..." style={{ minHeight: '16.7rem' }} />
+                        <LazyLoadImage src={chef_picture} className="img-fluid rounded-start" alt="..." style={{ minHeight: '16.7rem' }} />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body ">
