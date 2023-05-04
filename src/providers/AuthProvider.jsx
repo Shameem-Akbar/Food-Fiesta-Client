@@ -4,7 +4,6 @@ import app from '../firebase/firebase.config'
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
-const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -25,16 +24,9 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider)
     };
 
-    const handleGithubSignIn = () => {
+    const handleGithubSignIn = (githubProvider) => {
         setLoading(true);
         return signInWithPopup(auth, githubProvider)
-            .then(result => {
-                const loggedUser = result.user;
-                setUser(loggedUser);
-            })
-            .catch(error => {
-                console.log('error', error);
-            })
     };
 
     const logOut = () => {

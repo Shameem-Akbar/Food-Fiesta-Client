@@ -1,18 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../assets/login.jpg'
 import { FaGithub, FaGoogle } from 'react-icons/fa'
 import { AuthContext } from '../../../providers/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error, setError] = useState("");
+    const [user, setUser] = useState(null);
     const { signIn, handleGithubSignIn, handleGoogleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -35,10 +37,23 @@ const Login = () => {
         handleGoogleSignIn(googleProvider)
             .then(result => {
                 const loggedInUser = result.user;
+                navigate(from, { replace: true })
                 setUser(loggedInUser);
             })
             .catch(error => {
                 console.log('error', error.message);
+            })
+    }
+
+    const handleGithubLogin = () => {
+        handleGithubSignIn(githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                setUser(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log('error', error);
             })
     }
     return (
@@ -77,7 +92,7 @@ const Login = () => {
                     <Button onClick={handleGoogleLogin} className='col-12 mb-2 fw-semibold' variant="danger" type="submit">
                         <FaGoogle className='mb-1 me-1'></FaGoogle> Login with Google
                     </Button>
-                    <Button className='col-12 fw-semibold mb-2' variant="secondary" type="submit">
+                    <Button onClick={handleGithubLogin} className='col-12 fw-semibold mb-2' variant="secondary" type="submit">
                         <FaGithub className='mb-1 me-1'></FaGithub> Login with Github
                     </Button>
                     <Form.Text className="text-secondary">
