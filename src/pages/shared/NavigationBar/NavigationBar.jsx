@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
@@ -6,6 +6,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import ActiveLink from './ActiveLink/ActiveLink';
 
 const NavigationBar = () => {
+
     return (
         <div>
             <Container className='mb-4'>
@@ -17,7 +18,6 @@ const NavigationBar = () => {
                             <Nav className="mx-auto pe-5 gap-4 fs-5 fw-semibold">
                                 <ActiveLink to='/home'>Home</ActiveLink>
                                 <ActiveLink to='/about'>About</ActiveLink>
-                                <ActiveLink to='/chef-recipe'>Chef&apos;s Recipe</ActiveLink>
                                 <ActiveLink to='/blog'>Blog</ActiveLink>
                                 <ActiveLink to='/contact'>Contact</ActiveLink>
                             </Nav>

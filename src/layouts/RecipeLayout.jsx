@@ -9,7 +9,7 @@ const RecipeLayout = () => {
         <div style={{ backgroundImage: `url(${banner})`, backgroundRepeat: 'no-repeat', height: "12vh" }}>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
     );
 };
