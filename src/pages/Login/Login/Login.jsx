@@ -1,16 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../assets/login.jpg'
 import { FaGithub, FaGoogle } from 'react-icons/fa'
 import { AuthContext } from '../../../providers/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error, setError] = useState("");
-    const { signIn } = useContext(AuthContext);
+    const { signIn, handleGithubSignIn, handleGoogleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    const googleProvider = new GoogleAuthProvider();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -26,6 +28,17 @@ const Login = () => {
             })
             .catch(error => {
                 setError("Email & Password didn't match");
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        handleGoogleSignIn(googleProvider)
+            .then(result => {
+                const loggedInUser = result.user;
+                setUser(loggedInUser);
+            })
+            .catch(error => {
+                console.log('error', error.message);
             })
     }
     return (
@@ -59,16 +72,17 @@ const Login = () => {
                             <span className='px-2 text-secondary'>OR</span>
                             <hr style={{ width: '50%', borderBottom: '1px solid black' }} />
                         </div>
-                        <Button className='col-12 mb-2 fw-semibold' variant="danger" type="submit">
-                            <FaGoogle className='mb-1 me-1'></FaGoogle> Login with Google
-                        </Button>
-                        <Button className='col-12 fw-semibold mb-2' variant="secondary" type="submit">
-                            <FaGithub className='mb-1 me-1'></FaGithub> Login with Github
-                        </Button>
-                        <Form.Text className="text-secondary">
-                            Don&apos;t have an account? <Link className='fw-bold' to="/register" style={{ textDecoration: 'none', color: "#FF5915" }}>Register</Link>
-                        </Form.Text>
+
                     </Form>
+                    <Button onClick={handleGoogleLogin} className='col-12 mb-2 fw-semibold' variant="danger" type="submit">
+                        <FaGoogle className='mb-1 me-1'></FaGoogle> Login with Google
+                    </Button>
+                    <Button className='col-12 fw-semibold mb-2' variant="secondary" type="submit">
+                        <FaGithub className='mb-1 me-1'></FaGithub> Login with Github
+                    </Button>
+                    <Form.Text className="text-secondary">
+                        Don&apos;t have an account? <Link to='/register' className='fw-bold' style={{ textDecoration: 'none', color: "#FF5915" }}>Register</Link>
+                    </Form.Text>
                 </div>
 
 
