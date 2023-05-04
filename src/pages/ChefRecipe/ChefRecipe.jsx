@@ -23,7 +23,7 @@ const ChefRecipe = () => {
 
     return (
         <div>
-            <Container className="card mb-3" >
+            <Container className="card mb-3 px-0" >
                 <div className="row g-0 p-2">
                     <div className="col-md-4">
                         <img src={chef_picture} className="img-fluid rounded-start" alt="..." style={{ minHeight: '16.7rem' }} />
