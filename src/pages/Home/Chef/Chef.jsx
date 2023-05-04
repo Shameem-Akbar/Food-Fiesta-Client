@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { FaArrowRight, FaThumbsUp } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
-    const { chef_picture, chef_name, years_of_experience, num_recipes, likes } = chef;
+    const { id, chef_picture, chef_name, years_of_experience, num_recipes, likes } = chef;
 
     return (
         <div className='col-md-4 mb-3 mb-lg-4'>
@@ -22,7 +23,8 @@ const Chef = ({ chef }) => {
                             <FaThumbsUp className='me-1' style={{ color: "#FF5915", }}></FaThumbsUp>    {likes}
                         </Card.Text>
                     </div>
-                    <button className="btn mt-2 fw-semibold px-3 py-2 text-white rounded-3 border-0" style={{ backgroundColor: "#FF5915", }} type="button">View Recipes <FaArrowRight className='mb-1'></FaArrowRight> </button>
+                    <Link to={`/chef/${chef.id}`}>
+                        <button className="btn mt-2 fw-semibold px-3 py-2 text-white rounded-3 border-0" style={{ backgroundColor: "#FF5915", }} type="button">View Recipes <FaArrowRight className='mb-1'></FaArrowRight> </button></Link>
                 </Card.Body>
             </Card>
         </div>
