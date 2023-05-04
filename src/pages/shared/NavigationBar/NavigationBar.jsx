@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import { FaUserCircle } from 'react-icons/fa';
 import ActiveLink from './ActiveLink/ActiveLink';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavigationBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error))
+    }
 
     return (
         <div>
@@ -22,10 +30,16 @@ const NavigationBar = () => {
                                 <ActiveLink to='/contact'>Contact</ActiveLink>
                             </Nav>
                             <Nav className='d-flex flex-row align-items-center mt-2 ps-lg-5 ms-lg-5'>
-                                <div><FaUserCircle className='fs-3 me-2'></FaUserCircle></div>
-                                <Link to='/login'>
-                                    <Button className='fw-bold px-3 border-0' style={{ backgroundColor: "#FF5915" }}>Login</Button>
-                                </Link>
+                                {user &&
+                                    <div className='me-2'><img style={{ width: '2.5rem', height: '2.5rem', borderRadius: 75 }} src={user.photoURL} alt="" /></div>
+                                }
+                                {user ?
+                                    <Link to='/login'>
+                                        <Button onClick={handleLogOut} className='fw-bold px-3 border-0' style={{ backgroundColor: "#FF5915" }}>Log Out</Button>
+                                    </Link> : <Link to='/login'>
+                                        <Button className='fw-bold px-3 border-0' style={{ backgroundColor: "#FF5915" }}>Login</Button>
+                                    </Link>
+                                }
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

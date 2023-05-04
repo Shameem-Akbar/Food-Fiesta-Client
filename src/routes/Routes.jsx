@@ -15,6 +15,7 @@ import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import Blog from '../pages/Blog/Blog';
 import About from '../pages/About/About';
 import Contact from '../pages/Contact/Contact';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <ChefRecipe></ChefRecipe>,
+                element: <PrivateRoute><ChefRecipe></ChefRecipe></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
             }
         ]

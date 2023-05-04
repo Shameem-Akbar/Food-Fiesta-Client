@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../assets/login.jpg'
 import { FaGithub, FaGoogle } from 'react-icons/fa'
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState("");
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                navigate(from, { replace: true })
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                setError("Email & Password didn't match");
+            })
+    }
     return (
         <Container>
             <div className='row'>
@@ -13,7 +36,7 @@ const Login = () => {
                 </div>
                 <div className='mx-auto mt-1 mb-5 col-md-4 border border-2 p-4 rounded order-1 shadow'>
                     <h2 className='mt-1'>Please Login</h2>
-                    <Form>
+                    <Form onSubmit={handleLogin}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" name='email' placeholder="Enter Email" required />
@@ -22,6 +45,11 @@ const Login = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" name='password' placeholder="Password" required />
                         </Form.Group>
+                        {
+                            error && <Form.Text className="text-danger">
+                                <span>{error}</span> <br />
+                            </Form.Text>
+                        }
                         <Button className='fw-semibold col-12 py-2 border-0' variant="primary" type="submit" style={{ backgroundColor: "#FF5915", }}>
                             Login
                         </Button>

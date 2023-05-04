@@ -23,7 +23,6 @@ const Register = () => {
         setError('');
         setSuccess('');
 
-
         if (password.length < 6) {
             setError('Password must be 6 characters longer')
             return;
