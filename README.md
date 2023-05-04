@@ -1,5 +1,5 @@
 
-# Food Fiesta - An American Food Restaurant Website
+# Food Fiesta - An American Restaurant Website
 
 This is a website designed to help users to find america's best foods and order online. Here are some of the features and benefits of our website:
 * Our website allows users to choose food from american's best chefs.
