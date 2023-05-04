@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
-import { FaUserCircle } from 'react-icons/fa';
+import 'react-tooltip/dist/react-tooltip.css'
 import ActiveLink from './ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { Tooltip } from 'react-tooltip'
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -31,7 +32,14 @@ const NavigationBar = () => {
                             </Nav>
                             <Nav className='d-flex flex-row align-items-center mt-2 ps-lg-5 ms-lg-5'>
                                 {user &&
-                                    <div className='me-2'><img style={{ width: '2.5rem', height: '2.5rem', borderRadius: 75 }} src={user.photoURL} alt="" /></div>
+                                    <div>
+                                        <div className='me-2'
+                                            data-tooltip-id="my-tooltip"
+                                            data-tooltip-content={user.displayName}>
+                                            <img style={{ width: '2.5rem', height: '2.5rem', borderRadius: 75 }} src={user.photoURL} alt="" data-tip="Your tooltip content" />
+                                        </div>
+                                        <Tooltip id="my-tooltip" />
+                                    </div>
                                 }
                                 {user ?
                                     <Link to='/login'>
