@@ -9,7 +9,7 @@ import PdfFile from './PdfFile';
 const Blog = () => {
     return (
         <Container>
-            <h2 className='text-center fw-bold text-decoration-underline mb-4'>Question & Answer</h2>
+            <h1 className='text-center fw-bold text-decoration-underline mb-4'>Question & Answer</h1>
             <div className='d-flex justify-content-end'>
                 <PDFDownloadLink document={<PdfFile />} filename="FORM">
                     {({ loading }) => (loading ? <button className='fw-bold px-3 border-0 text-white border rounded p-2 mb-2' style={{ backgroundColor: "#FF5915" }}>Loading Document...</button> : <button className='fw-bold px-3 border-0 text-white border rounded p-2 mb-2' style={{ backgroundColor: "#FF5915" }}>Download PDF</button>)}

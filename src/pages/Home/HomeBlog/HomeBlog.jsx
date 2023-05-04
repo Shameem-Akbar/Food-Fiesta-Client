@@ -23,7 +23,7 @@ const HomeBlog = () => {
                                 </Card.Text>
                             </div>
                             <Card.Text className='mb-1'>
-                                <span className='fw-semibold'>Fast food has been an American staple for decades, but the industry is facing new challenges as consumers demand healthier and more sustainable options. As we look to the future of fast food in America, it&apos;s clear that the industry must adapt to meet changing consumer needs and preferences....</span>
+                                <span className='fw-semibold'>Fast food has been an American staple for decades, but the industry is facing new challenges as consumers demand healthier and more sustainable options. As we look to the future of fast food in America, it&apos;s clear that the industry must adapt to meet changing consumer....</span>
                             </Card.Text>
                             <button className="btn mt-2 fw-semibold px-3 py-2 text-white rounded-3 border-0" style={{ backgroundColor: "#FF5915", }} type="button">Read More <FaArrowRight className='mb-1'></FaArrowRight> </button>
                         </Card.Body>
